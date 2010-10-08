@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <meta charset="utf-8">
-<title>Jetpack Reviewer Dashboard</title>
+<title>SuperDuper Reviewer Dashboard</title>
 <style>
 body {
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
@@ -56,29 +56,29 @@ a.dashboard:hover {
 <script>
 var REVIEWERS = [
   {
-    name: "Atul",
-    twitter: "toolness",
-    email: "avarma@mozilla.com"
+    name: "Ben",
+    twitter: "bhearsum",
+    email: "bhearsum@mozilla.com"
   },
   {
-    name: "Brian",
-    twitter: "lotharrr",
-    email: "warner-bugzilla@lothar.com"
+    name: "Catlee",
+    twitter: "chrisatlee",
+    email: "catlee@mozilla.com"
   },
   {
-    name: "Dietrich",
-    twitter: "dietrich",
-    email: "dietrich@mozilla.com"
+    name: "Lukas",
+    twitter: "lsblakk",
+    email: "lsblakk@mozilla.com"
   },
   {
-    name: "Drew",
+    name: "Nick",
     twitter: null,
-    email: "adw@mozilla.com"
+    email: "nthomas@mozilla.com"
   },
   {
-    name: "Myk",
-    twitter: "mykmelez",
-    email: "myk@mozilla.org"
+    name: "Rail",
+    twitter: null,
+    email: "rail@mozilla.org"
   }
 ];
 
@@ -98,8 +98,8 @@ function getReviewerInfo(email, numWeeksAgo, cb) {
     data: {
       status: ["NEW", "UNCONFIRMED", "ASSIGNED", "REOPENED"],
       'flag.requestee': email,
-      'product': 'Mozilla Labs',
-      'component': 'Jetpack SDK',
+      'product': 'mozilla.org',
+      'component': 'Release Engineering',
       'changed_field': 'flag',
       'changed_after': timeAgo(WEEK_MS * numWeeksAgo)
     },
@@ -116,8 +116,8 @@ function getReviewerInfo(email, numWeeksAgo, cb) {
       url: "/count",
       data: {
         'flag.setter': email,
-        'product': 'Mozilla Labs',
-        'component': 'Jetpack SDK',
+        'product': 'mozilla.org',
+        'component': 'Release Engineering',
         'changed_field': 'flag',
         'changed_before': timeAgo(WEEK_MS * numWeeksAgo),
         'changed_after': timeAgo(WEEK_MS * (numWeeksAgo + 1))
@@ -210,7 +210,7 @@ function makeBarChart(data, id, info) {
         timeAgo = weeksAgo + " weeks ago";
     }
     var patches = (d == 1) ? "patch" : "patches";
-    return info.name + " reviewed " + d + " Jetpack SDK " + patches + " " +
+    return info.name + " reviewed " + d + " Release Engineering " + patches + " " +
            timeAgo + ".";
   }
 
@@ -226,15 +226,15 @@ function makeBarChart(data, id, info) {
   vis.render();
 }
 </script>
-<a href="http://github.com/toolness/reviewer-dashboard"><img
+<a href="http://github.com/lsblakk / reviewer-dashboard"><img
   style="position: absolute; top: 0; right: 0; border: 0;" src="http://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png"
   alt="Fork me on GitHub" /></a>
-<h1>Jetpack Reviewer Dashboard</h1>
+<h1>SuperDuper Reviewer Dashboard</h1>
 <div id="templates">
   <div class="entry">
     <div class="portrait"></div>
     <div class="graph"></div>
     <div class="name"></div>
-    <div class="info"><a class="dashboard" target="dashboard" href="http://toolness.github.com/bugzilla-dashboard/#username="><span class="pending">fetching numbers...</span></a></div>
+    <div class="info"><a class="dashboard" target="dashboard" href="http://lsblakk.github.com/bugzilla-dashboard/#username="><span class="pending">fetching numbers...</span></a></div>
   </div>
 </div>
