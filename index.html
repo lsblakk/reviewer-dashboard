@@ -171,7 +171,15 @@ $(window).ready(function() {
                             info.twitter + "_b";
       twitterLink.append(twitterPortrait);
       entry.find(".portrait").append(twitterLink);
+    } else {
+      var twitterURL = "http://twitter.com/" + info.twitter;
+      var twitterPortrait = new Image();
+      var twitterLink = $("<a></a>").attr("href", twitterURL);
+      twitterPortrait.src = "http://avnerd.tv/sharedFiles/Images/murray.jpg";
+      twitterLink.append(twitterPortrait);
+      entry.find(".portrait").append(twitterLink);
     }
+
     $(document.body).append(entry);
 
     var renderer = makeRenderer(entry, info);
